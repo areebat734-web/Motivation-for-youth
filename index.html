@@ -166,19 +166,46 @@
   
 }
 
-@media (max-width: 700px) {
-  .ayah-block {
-    flex-direction: column;
     text-align: center;
-    padding: 10px;  
+  }
+  .ayah-block .image img {
+    float: none !important;
+    margin: 10px auto 0 auto !important;
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+/* Fix card negative margins on mobile */
+@media (max-width: 700px) {
+  .card {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+/* Make images inside .ct2 responsive */
+.ct2 img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+}
+/* Optional: reduce font size slightly on small screens for better fit */
+@media (max-width: 400px) {
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 22px;
+    padding: 10px 15px;
+  }
+  .ct1 {
+    font-size: 16px;
+  }
+  .arabic {
+    font-size: 18px;
   }
 }
 
-  .image img {
-  max-width: 180px;
-  border-radius: 8px;
-  
-}
 
     .container {
       max-width: 700px; 
