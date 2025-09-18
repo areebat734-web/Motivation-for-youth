@@ -293,7 +293,25 @@
       }
     }
 
+
+ body { font-family: Arial, sans-serif; background:#f4f4f4; }
+    .container { width: 400px; margin: 50px auto; padding:20px; background:#fff; border-radius:8px; }
+    h2 { text-align:center; }
+    textarea, input[type="submit"] {
+      width:100%; padding:10px; margin-top:10px; border:1px solid #ccc; border-radius:5px;
+    }
+    input[type="submit"] { background:#28a745; color:#fff; border:none; cursor:pointer; }
+    input[type="submit"]:hover { background:#218838; }
+
+
   </style>
+
+
+ <style>
+    body { font-family: Arial; padding:20px; }
+    .box { border:1px solid #ccc; padding:15px; margin-bottom:10px; background:#f9f9f9; }
+  </style>
+
 
     </head>
 <body>
@@ -914,6 +932,15 @@
     I hope this page gave you <b>motivation</b> and a <span class="highlight">fresh mindset</span>. <br>
     Keep your developer in your <b>duas</b>. 🌙 <br><br>
     <b>Take care & Allah Hafiz</b>
+  </div>
+
+
+  <div class="container">
+    <h2>Ask Your Question</h2>
+    <form action="save_question.php" method="POST">
+      <textarea name="question" rows="4" placeholder="Write your question..." required></textarea>
+      <input type="submit" value="Submit">
+    </form>
   </div>
 
 <script>
