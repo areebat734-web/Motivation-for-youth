@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+       body{
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            transition: 0.3s;
+            background-color: #f9f9f9;
+        }
+        h1{
+            margin: 0;
+            font-size: 28px;
+            background: #065f46;
+            color: #fff;
+            border-radius: 0;
+            padding: 12px 20px;
+            text-align: center;
+        }
+        .content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px auto;
+            gap: 20px;
+            max-width: 1000px;
+            flex-wrap: wrap; 
+        }
+       .ct1 {
+            flex: 1;
+            min-width: 280px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-size: 18px;
+            text-align: justify;
+             animation: slideFromLeft 1.5s ease forwards;
+        }
+        span {
+            font-weight: bold;
+            color: #065f46;
+        }
+       .ct2 img {
+            flex: 1;
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+             animation: slideFromRight 1.5s ease forwards;
+        }
+     
+    @keyframes slideFromLeft {
+      from { transform: translateX(-100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideFromRight {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    span {
+      color: darkgreen;
+      font-weight: bold;
+    }
+        h2 {
+            color: #064635;
+            text-align: center;
+            margin-top: 20px;
+        }
+         tr:nth-child(even) {
+      background: #f0fdf4;
+    }
+      tr:hover {
+      background: #f5f7f6;
+    }
+
+       table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px 15px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #065f46;
+      color: white;
+      text-align: center;
+    }
+      .arabic {
+      font-size: 20px;
+      direction: rtl;
+      text-align: right;
+      font-family: "Scheherazade", "Amiri", serif;
+      color: #064635;
+    }
+     .translation {
+  font-weight: 600;
+  margin-top: 5px;
+  margin-bottom: 5px; 
+}
+
+    .theme {
+      font-style: italic;
+      color: #444;
+    }
+.ayah-block {
+  background: #fff;
+  padding: 15px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  display: flex;      
+  gap: 15px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  margin-left: 190px;
+  margin-right: 190px;
+  border: 1px solid black;
+  margin-top: 25px;
+}
+
+
+.ayah-block .text { flex: 1; }
+
+
+.arabic {
+  direction: rtl;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 8px 0;
+  margin-right: 9px;
+}
+
+
+.translation { font-weight: 600; 
+  margin: 5px 0; 
+}
+.explanation { color: #555;
+   font-size: 0.9rem;
+   }
+
+.image img {
+  max-width: 180px;
+  border-radius: 8px;
+  display: block;
+  float: right;
+  margin-top: 20px;
+
+}
+.unique{
+  margin-right: -10px;
+  margin-top: -10px;
+  
+}
+
+@media (max-width: 700px) {
+  .ayah-block {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;  
+  }
+}
+
+  .image img {
+  max-width: 180px;
+  border-radius: 8px;
+  
+}
+
+    .container {
+      max-width: 700px; 
+    }
+    .card {
+      border: none;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+      margin-left: -50px;
+      margin-right: -50px;
+    }
+    .card-header {
+      background: #1aad69;
+      color: white;
+      font-weight: 600;
+      border-radius: 12px 12px 0 0;
+      cursor: pointer;
+      padding: 15px 17px;
+    }
+    .card-body {
+      background: #ffffff;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    h2 {
+      color: #169b5d;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #f8f9fa;
+      font-size: 16px;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 1s;
+    }
+
+    .footer.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .footer b {
+      color: #607c9c;
+    }
+
+    .highlight {
+      color: #42966c;
+      font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <h1>Quranic Verses</h1>
+    <div class="content">
+         <div class="ct1">
+      The <span>Quran</span> is honestly the biggest source of <span>motivation</span> in our lives. 
+      It’s not just about <span>prayers,</span> it’s about <span>real-life guidance</span>. 
+      Every <span>problem</span>, every <span>question</span>, every <span>moment</span> has an <span>answer</span> in it. 
+      <span>Allah</span> has explained things so <span>beautifully</span> that you can actually feel the 
+      <span>peace</span> and <span>hope</span> when you read His words.
+    </div>
+    <div class="ct2">
+      <img src="https://tse1.mm.bing.net/th/id/OIP.614crBLyt0gPtgUwQJyozQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Quran Image">
+    </div>
+  </div>
+<h2>20 Motivational Ayat — Quick Overview</h2>
+<table>
+    <tr>
+        <th>#</th>
+        <th>Arabic</th>
+        <th>English Translation</th>
+        <th>Surah & Verse</th>
+        <th>Tittle</th>
+    </tr>
+     <tr data-target="ayah1">
+        <td>1</td>
+        <td class="arabic">فَإِنَّ مَعَ الْعُسْرِ يُسْرًا (٥) إِنَّ مَعَ الْعُسْرِ يُسْرًا (٦)</td>
+        <td class="translation">Indeed, with hardship [will be] ease. Indeed, with hardship [will be] ease.</td>
+        <td>Surah Alm-nashra (94:5–6)</td>
+        <td class="tittle">Ease after hardship</td>
+    </tr>
+       <tr data-target="ayah2">
+        <td></td>
+        <td class="arabic">قُل لَّن يُصِيبَنَا إِلَّا مَا كَتَبَ اللَّهُ لَنَا...</td>
+        <td class="translation">Say, "Never will we be struck except by what Allah has decreed for us; He is our protector." And upon Allah let the believers rely.</td>
+        <td>Surah At-Tawbah (9:51)</td>
+        <td class="tittle">Trust in Allah’s decree</td>
+    </tr>
+    <tr data-target="ayah3">
+        <td>3</td>
+        <td class="arabic">وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ</td><td class="translation">And whoever relies upon Allah – then He is sufficient for him.</td>
+        <td>Surah At-Talaq (65:3)</td>
+        <td class="tittle">Reliance upon Allah</td>
+    </tr>
+    <tr data-target="ayah4">
+        <td>4</td>
+        <td class="arabic">لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا</td>
+        <td class="translation">Allah does not burden a soul beyond that it can bear.</td>
+        <td>Surah Al-Baqarah (2:286)</td>
+        <td class="tittle">Strength to endure</td>
+    </tr>
+    <tr data-target="ayah5">
+        <td>5</td>
+        <td class="arabic">وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ...</td>
+        <td class="translation">Seek help through patience and prayer, and indeed, it is difficult except for the humbly submissive [to Allah].</td>
+        <td>Surah Al-Baqarah (2:45)</td>
+        <td class="tittle">Patience & prayer</td>
+    </tr>
+    <tr data-target="ayah6">
+        <td>6</td>
+        <td class="arabic">قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا...</td>
+        <td class="translation">Say, "O My servants who have transgressed against themselves, do not despair of the mercy of Allah. Indeed, Allah forgives all sins."</td>
+        <td>Surah Az-Zumar (39:53)</td>
+        <td class="tittle">Hope in Allah’s mercy</td>
+    </tr>
+    <tr data-target="ayah7">
+        <td>7</td>
+        <td class="arabic">وَلَا تَهِنُوا وَلَا تَحْزَنُوا...</td>
+        <td class="translation">So do not weaken and do not grieve, and you will be superior if you are [true] believers.</td>
+        <td>Surah Aal-Imran (3:139)</td>
+        <td class="tittle">Do not grieve</td>
+    </tr>
+    <tr data-target="ayah8">
+        <td>8</td>
+        <td class="arabic">وَعَلَى اللَّهِ فَتَوَكَّلُوا إِن كُنتُم مُّؤْمِنِينَ</td>
+        <td class="translation">And upon Allah rely, if you should be believers.</td>
+        <td>Surah Al-Maidah (5:23)</td>
+        <td class="tittle">Trust in Allah</td>
+    </tr>
+    <tr data-target="ayah9">
+        <td>9</td>
+        <td class="arabic">رَبَّنَا آتِنَا مِن لَّدُنكَ رَحْمَةً...</td>
+        <td class="translation">Our Lord, grant us from Yourself mercy and prepare for us from our affair right guidance.</td>
+        <td>Surah Al-Kahf (18:10)</td>
+        <td class="tittle">Dua for guidance</td>
+    </tr>
+    <tr data-target="ayah10">
+        <td>10</td>
+        <td class="arabic">وَإِذَا سَأَلَكَ عِبَادِي عَنِّي...</td>
+        <td class="translation">And when My servants ask you concerning Me, indeed I am near. I respond to the invocation of the supplicant when he calls upon Me.</td>
+        <td>Surah Al-Baqarah (2:186)</td>
+        <td class="tittle">Allah is near</td>
+    </tr>
+    <tr data-target="ayah11">
+        <td>11</td>
+        <td class="arabic">مَنْ عَمِلَ صَالِحًا مِّن ذَكَرٍ...</td>
+        <td class="translation">Whoever does righteousness, whether male or female, while he is a believer – We will surely cause him to live a good life.</td>
+        <td>Surah An-Nahl (16:97)</td>
+        <td class="tittle">Good life for believers</td>
+    </tr>
+    <tr data-target="ayah12">
+        <td>12</td>
+        <td class="arabic">أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ</td>
+        <td class="translation">Unquestionably, by the remembrance of Allah hearts find rest.</td>
+        <td>Surah Ar-Ra’d (13:28)</td>
+        <td class="tittle">Peace in remembrance</td>
+    </tr>
+    <tr data-target="ayah13">
+        <td>13</td>
+        <td class="arabic">ادْعُونِي أَسْتَجِبْ لَكُمْ</td>
+        <td class="translation">Call upon Me; I will respond to you.</td>
+        <td>Surah Ghafir (40:60)</td>
+        <td class="tittle">Answered prayers</td>
+    </tr>
+    <tr data-target="ayah14">
+        <td>14</td>
+        <td class="arabic">وَقُولُوا لِلنَّاسِ حُسْنًا</td>
+        <td class="translation">And speak to people good [words].</td>
+        <td>Surah Al-Baqarah (2:83)</td>
+        <td class="tittle">Speak kindness</td>
+    </tr>
+    <tr data-target="ayah15">
+        <td>15</td>
+        <td class="arabic">وَلَنَبْلُوَنَّكُم بِشَيْءٍ مِّنَ الْخَوْفِ...</td>
+        <td class="translation">And We will surely test you with something of fear and hunger... but give good tidings to the patient.</td>
+        <td>Surah Al-Baqarah (2:155)</td>
+        <td class="tittle">Patience in trials</td>
+    </tr>
+    <tr data-target="ayah16">
+      <td>16</td>
+        <td class="arabic">قَالَ لَا تَخَافَا إِنَّنِي مَعَكُمَا...</td>
+        <td class="translation">He said, "Fear not. Indeed, I am with you both; I hear and I see."</td>
+        <td>Surah Taha (20:46)</td>
+        <td class="tittle">Allah is with you</td>
+    </tr>
+    <tr data-target="ayah17">
+        <td>17</td>
+        <td class="arabic">مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ...</td>
+        <td class="translation">Your Lord has not forsaken you, nor has He detested [you]. And the Hereafter is better for you than the first [life]. And your Lord is going to give you, and you will be satisfied.</td>
+        <td>Surah Ad-Duha (93:3–5)</td>
+        <td class="tittle">Allah has not abandoned you</td>
+    </tr>
+    <tr data-target="ayah18">
+        <td>18</td>
+        <td class="arabic">وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ...</td>
+        <td class="translation">And those who strive for Us – We will surely guide them to Our ways.</td>
+        <td>Surah Al-Ankabut (29:69)</td>
+        <td class="tittle">Guidance for strivers</td>
+    </tr>
+    <tr data-target="ayah19">
+        <td>19</td>
+        <td class="arabic">وَأُخْرَىٰ تُحِبُّونَهَا نَصْرٌ مِّنَ اللَّهِ...</td>
+        <td class="translation">And [He will give you] another [favor] that you love – victory from Allah and an imminent conquest; and give good tidings to the believers.</td>
+        <td>Surah As-Saff (61:13)</td>
+        <td class="tittle">Victory from Allah</td>
+    </tr>
+    <tr data-target="ayah20">
+        <td>20</td>
+        <td class="arabic">وَاصْبِرُوا ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ</td>
+        <td class="translation">And be patient. Indeed, Allah is with the patient.</td>
+        <td>Surah Al-Anfal (8:46)</td>
+        <td class="tittle">Allah with the patient</td>
+    </tr>
+    </table>
+     <h2>Detailed explanations — (readable & practical)</h2>
+   <div id="ayah1" class="ayah-block">
+    <div class="text">
+      <h2>🌿 Surah Alm-nashra(94:5–6)</h2>
+      <div class="arabic">فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ﴿٥﴾ إِنَّ مَعَ الْعُسْرِ يُسْرًا ﴿٦﴾</div>
+      <div class="translation">"Indeed, with hardship comes ease. Indeed, with hardship comes ease".</div>
+      <div class="explanation">💬 Bro/sis, I know sometimes life feels like it’s crushing you — deadlines, exams, family drama, or even just overthinking at night.
+         But Allah literally promises that every single hardship comes with ease, not after it, but with it. So while you’re stressed now,
+          your ease is already on the way. It’s like going through finals — painful, but graduation is waiting. Just hold on, the balance is already written for you. In short 
+          blindly on your Rabb. He will never dissapoint you bro.
+</div>
+    </div>
+    <div class="image"><img src="c:\Users\Akhter Laptops\Downloads\Screenshot_14-9-2025_21524_www.bing.com.jpeg" alt=""></div>
+  </div>
+
+  <div id="ayah2" class="ayah-block">
+    <div class="text">
+      <h2>🌿 Surah At-Tawbah (9:51)</h2>
+      <div class="arabic">قُل لَّن يُصِيبَنَا إِلَّا مَا كَتَبَ اللَّهُ لَنَا هُوَ مَوْلَانَا وَعَلَى اللَّهِ فَلْيَتَوَكَّلِ الْمُؤْمِنُونَ</div>
+      <div class="translation">Say, "Nothing will happen to us except what Allah has decreed for us; He is our protector." And upon Allah let the believers rely.</div>
+      <div class="explanation">💬Think about how much you overthink the ‘what ifs.’ What if I fail? What if I don’t get that job? 
+        What if my marriage doesn’t work? Bro, just think for a second — what do you actually get from thinking about all these ‘ifs’? Doesn’t 
+        it only make you more stressed and anxious? But you know what — the Qur’an has all the solutions. There’s an ayah that’s like Allah saying:
+         Relax. Nothing can touch you except what He has already written,
+         and He is your Protector. That means even the rejection you cried over was actually His protection. You’re not unlucky — you’re being guided.
+</div>
+    </div>
+    <div class="image"> <img src="https://tse2.mm.bing.net/th/id/OIP.NpMWDoAdOt-gpPZrggwFhwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt=""></div>
+  </div>
+  <div id="ayah3"class="ayah-block">
+    <div class="text">
+      <h2>🌿 Surah At-Talaq (65:2-3)</h2>
+      <div class="arabic">وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا ﴿٢﴾ وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ</div>
+      <div class="translation">"And whoever fears Allah – He will make for him a way out. And will provide for him from where he does not expect".</div>
+      <div class="explanation">💬 Stressed about money, career (exams, homework, assignments, parents’ expectations),
+         or the future? Allah promises: if you fear Him, He’ll open doors you never even imagined. It’s like receiving an email for a job you never applied for — 
+        His rizq comes in the most unexpected ways. All you need to do is have strong faith and trust your Lord.
+</div>
+    </div>
+    <div class="image"><img src="https://media.istockphoto.com/id/1954319376/vector/verse-2-of-chapter-64-of-holy-koran-translated-and-whoever-fears-allah-he-will-make-for-him.jpg?s=170667a&w=0&k=20&c=wTqgpgWfyhd-BlEGeDesecwpet2oWOauat2-Qcg4pmc=" alt=""></div>
+  </div>
+
+
+    <div id="ayah4" class="ayah-block">
+    <div class="text">
+      <h2>🌿 Surah Al-Baqarah (2:286)</h2>
+      <div class="arabic">لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ</div>
+      <div class="translation">"Allah does not burden a soul beyond what it can bear. It will have [the consequence of] what it earned, and 
+        it will bear [the consequence of] what it earned".</div>
+      <div class="explanation">💬 When you feel like “I can’t handle this anymore,” remember: Allah Himself said you can.
+         The weight you carry was measured exactly for you — not too light, not too heavy. Like a trainer giving you the
+          right weight to build strength, Allah gives you struggles to grow. You’re stronger than you think. Trust you're self and you're hardwork.
+      </div>
+    </div>
+    <div class="image"><img src="c:\Users\Akhter Laptops\Downloads\Screenshot_14-9-2025_205552_www.bing.com.jpeg" alt=""></div>
+  </div>
+  <div id="ayah5" class="ayah-block">
+    <div class="text">
+      <h2>🌿 Surah Al-Baqarah (2:45)</h2>
+      <div class="arabic">وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ وَإِنَّهَا لَكَبِيرَةٌ إِلَّا عَلَى الْخَاشِعِينَ</div>
+      <div class="translation">“Seek help through patience and prayer, and indeed, it is difficult except for the humble.”
+</div>
+      <div class="explanation">💬 When life feels heavy, we usually run to friends. But this ayah says: run to patience and Salah. It’s not easy at first,
+         but when you humble yourself and open that prayer mat, relief comes in ways you can’t even explain. Have you noticed how calm your body feels after 
+         praying? The deepest peace is only with Allah. These days, when we feel depressed, we often turn to music and say, ‘music heals us.’ Bro, seriously — 
+        from which angle does it heal? Just listen to one Surah of the Qur’an, and you’ll see how calming and healing Allah’s words truly are
+</div>
+    </div>
+    <div class="image"><img src="c:\Users\Akhter Laptops\Downloads\Screenshot_14-9-2025_205329_www.bing.com.jpeg" alt=""></div>
+  </div>
+  <div id="ayah6" class="ayah-block">
+    <div class="text">
+      <h2>🌿 Surah Az-Zumar (39:53)</h2>
+      <div class="arabic">قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ</div>
+      <div class="translation">Say, "O My servants who have transgressed against themselves, do not despair of the mercy of Allah."</div>
+      <div class="explanation">💬Maybe you feel too far gone — too many sins, too many mistakes.
+         But Allah literally tells you: don’t give up. Your past doesn’t define you. And honestly, who are you to judge someone for their past?
+          You have no right, bro. Sorry if I sound harsh, but my dear reader, everyone has a past. So please, don’t ever taunt anyone because of it. 
+          And for the one carrying that past — listen, your past is not the end of your life. Don’t regret forever. The past is gone; now change your future. 
+          Trust me, you can do it. Allah’s mercy is far greater than your worst sin. 
+        This ayah is hope for everyone who thinks they’re unworthy of forgiveness. Spoiler: you’re always worthy
+</div>
+    </div>
+    <div class="image"><img src="https://tse1.mm.bing.net/th/id/OIP.qZg3EJRC5X9l4dnhFZDwKwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt=""></div>
+  </div>
+  <div id="ayah7" class="ayah-block">
+    <div class="text">
+      <h2>🌿 Surah Al-Imran (3:139)</h2>
+      <div class="arabic">وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنتُمُ الْأَعْلَوْنَ إِن كُنتُم مُّؤْمِنِينَ</div>
+      <div class="translation">"So do not weaken and do not grieve, and you will be superior if you are [true] believers".</div>
+      <div class="explanation">💬 Depression, breakups, failures — they make you feel worthless. But Allah reminds you: don’t sink into despair. Your worth isn’t 
+        in likes, followers, or people’s opinions; it’s in your connection with Him. Hold onto faith, and you’ll rise above what crushed you. Do the things that are
+         good and that Allah has commanded
+         in the Qur’an. Don’t follow people’s opinions — follow Allah’s words. If you want success in this world and the Hereafter, that’s the only path.
+</div>
+    </div>
+    <div class="image"><img src="c:\Users\Akhter Laptops\Downloads\Screenshot_14-9-2025_20498_www.bing.com.jpeg" alt=""></div>
+  </div>
+<div id="ayah8"class="ayah-block">
+     <div class="text">
+          <div class="image"><img class="unique" src="c:\Users\Akhter Laptops\Downloads\Screenshot_14-9-2025_204451_www.bing.com.jpeg" alt=""></div>
+          <h2> 🌿Surah Al-Maidah (5:23)</h2>
+<div class="arabic">قَالَ رَجُلَانِ مِنَ الَّذِينَ يَخَافُونَ أَنْعَمَ اللَّهُ عَلَيْهِمَا ادْخُلُوا عَلَيْهِمُ الْبَابَ فَإِذَا دَخَلْتُمُوهُ فَإِنَّكُمْ غَالِبُونَ ۚ وَعَلَى اللَّهِ فَتَوَكَّلُوا إِنْ كُنْتُمْ مُؤْمِنِينَ</div>
+<div class="translation">"Enter upon them through the gate, for when you have entered it, you will be predominant. And upon Allah rely, if you should be believers."
+</div>
+<div class="explanation">💬 This verse reminds us that fear is natural, but faith pushes us to move forward instead of running away.
+In today's world, many youth feel stuck—whether it's exams, career choices, or social pressure—but Allah says: face it head-on.
+Success doesn't come from overthinking problems, it comes from taking the first step with trust in Allah.
+Notice how the ayah links action + reliance on Allah; we can't just sit and wait, we have to move.
+So whether it's fighting laziness, dealing with peer pressure, or overcoming anxiety, this verse teaches: start, trust, and Allah will make you stronger 
+than the challenge.
+</div>
+
+    </div>
+   </div>
+
+      <div id="ayah9"class="ayah-block">
+    <div class="text">
+      <h2>🌿 Surah Al-kahf (18:10)</h2>
+      <div class="arabic">إِذْ أَوَى الْفِتْيَةُ إِلَى الْكَهْفِ فَقَالُوا رَبَّنَا آتِنَا مِنْ لَدُنْكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا</div>
+      <div class="translation">"Our Lord, grant us from Yourself mercy and prepare for us from our affair right guidance."</div>
+      <div class="explanation">💬 Bro/sis, notice how the youths went straight to Allah when the world was against them — that’s real reliance.
+       Sometimes we feel trapped by society, fake friends, or pressure, but like them, we can “find our cave” in dua and prayer.
+     They didn’t ask for money, fame, or power — just mercy and guidance, and that’s exactly what we need today.
+       This verse teaches us: don’t be shy to say “Ya Allah, fix my mess, guide me” even when no one else gets you.
+       Bro/sis, your cave today could be your sajdah, Quran recitation, or even just a quiet moment of reflection — Allah listens.
+      </div>
+    </div>
+    <div class="image"><img src="https://tse3.mm.bing.net/th/id/OIP.Ggw-foYxzhxGedJ5fWJkeQHaEc?rs=1&pid=ImgDetMain&o=7&rm=3" alt=""></div>
+  </div>
+    <div id="ayah10" class="ayah-block">
+    <div class="text">
+      <h2>🌿 Surah Al-Baqarah (2:186)</h2>
+      <div class="arabic">وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ ۖ فَلْيَسْتَجِيبُوا لِي وَلْيُؤْمِنُوا بِي لَعَلَّهُمْ يَرْشُدُونَ</div>
+      <div class="translation">"And when My servants ask you concerning Me, indeed I am near. I respond to the invocation of the supplicant
+         when he calls upon Me. So let them respond to Me [by obedience] and believe in Me that they may be [rightly] guided".</div>
+      <div class="explanation">💬This is one of the most comforting verses — Allah Himself says “I am near”.
+          No need for a middleman, no delay — your dua goes straight to Him.
+         In today’s world of loneliness and fake connections, this verse is like a hug from Allah.
+          The key is simple: call on Him sincerely, and respond back with obedience.
+          Bro/sis, whenever life feels heavy, remember: the King of all worlds says “I’m close to you.</div>
+    </div>
+     <div class="image"><img src="c:\Users\Akhter Laptops\Downloads\Screenshot_14-9-2025_201040_www.bing.com.jpeg" alt=""></div>
+  </div>
+  <div id="ayah11" class="ayah-block">
+    <div class="text">
+      <h2>🌿 Surah An-Nahl (16:97)</h2>
+      <div class="arabic">مَنْ عَمِلَ صَالِحًا مِّن ذَكَرٍ أَوْ أُنثَىٰ وَهُوَ مُؤْمِنٌ فَلَنُحْيِيَنَّهُ حَيَاةً طَيِّبَةً ۖ وَلَنَجْزِيَنَّهُمْ أَجْرَهُم بِأَحْسَنِ مَا كَانُوا يَعْمَلُونَ</div>
+      <div class="translation">"Whoever does righteousness, whether male or female, while he is a believer – We will surely cause him to live a good life, and We will 
+        surely give them their reward [in the Hereafter] according to the best of what they used to do."</div>
+      <div class="explanation"> 💬 Allah makes it clear: it’s not about gender, status, or fame — it’s about faith + good deeds.
+            Everyone today is chasing “aesthetic” or “perfect” lives, but Allah promises a real peaceful life through righteousness.
+          That “hayatan tayyibah” (good life) means contentment — something money, likes, or followers can never buy.
+           If you want inner peace in this noisy world, start with small good deeds and sincerity.
+            Bro, this verse is like Allah saying: “Do good, stay faithful, and I’ll handle both your dunya and akhirah.
+      </div>
+    </div>
+    <div class="image"><img src="c:\Users\Akhter Laptops\Downloads\Screenshot_14-9-2025_201347_www.bing.com.jpeg" alt=""></div>
+  </div>
+    <div id="ayah12" class="ayah-block">
+  <div class="text">
+    <h2>🌿 Surah Ar-Ra’d (13:28)</h2>
+    <div class="arabic">الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ اللَّهِ ۗ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ</div>
+    <div class="translation">"Those who believe and whose hearts find rest in the remembrance of Allah. Verily, in the remembrance of Allah do hearts find rest!"</div>
+    <div class="explanation">💬 Bro/sis, this ayah is a reminder that no matter how restless or anxious we get, nothing will truly calm the heart except Allah’s remembrance.
+       Not money, not people, not distractions — only dhikr brings that deep peace we all search for.</div>
+  </div>
+  <div class="image"><img src="c:\Users\Akhter Laptops\Downloads\Screenshot_14-9-2025_201559_www.bing.com.jpeg" alt=""></div>
+</div>
+     <div id="ayah13" class="ayah-block">
+  <div class="text">
+    <h2>🌿 Surah Ghafir (40:60)</h2>
+    <div class="arabic">وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ ۚ إِنَّ الَّذِينَ يَسْتَكْبِرُونَ عَنْ عِبَادَتِي سَيَدْخُلُونَ جَهَنَّمَ دَاخِرِينَ</div>
+    <div class="translation">And your Lord says, "Call upon Me; I will respond to you." Indeed, those who disdain My worship will enter Hell [rendered] contemptible".</div>
+    <div class="explanation">💬 Allah is telling us to make dua — it’s not just a request, it’s worship. If we ignore it out of pride, we only harm ourselves. But if we call sincerely, He promises to respond. Dua is our direct connection to Him every single day.</div>
+  </div>
+  <div class="image"><img src="https://tse4.mm.bing.net/th/id/OIP.X9pTCH-6FH2AVA6pnrEOKwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt=""></div>
+</div>
+        <div id="ayah14" class="ayah-block">
+  <div class="text">
+    <h2>🌿 Surah Al-Baqarah (2:83)</h2>
+    <div class="arabic">وَإِذْ أَخَذْنَا مِيثَاقَ بَنِي إِسْرَائِيلَ لَا تَعْبُدُونَ إِلَّا اللَّهَ وَبِالْوَالِدَيْنِ إِحْسَانًا وَذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَقُولُوا لِلنَّاسِ حُسْنًا وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ ثُمَّ تَوَلَّيْتُمْ إِلَّا قَلِيلًا مِّنكُمْ وَأَنتُم مُّعْرِضُونَ</div>
+    <div class="translation">And [recall] when We took the covenant from the Children of Israel, [enjoining upon them], “Do not worship except Allah; and to parents do good and to relatives, orphans, and the needy.
+       And speak to people good words and establish prayer and give zakah.” Then you turned away, except a few of you, and you were refusing.</div>
+    <div class="explanation">   💬 Bro/sis — this ayah is a compact life-manual:  
+       Put Allah first — nothing replaces sincere worship.  
+       Treat parents, relatives, orphans and the poor with real kindness — that’s a measure of faith.  
+       Your words matter: speak gently and uplift others, not tear them down.  
+       Keep your practice alive — salah and zakah shape the heart and society.  
+       In our time, it’s a reminder to stop drifting — act on these basics and don’t let them be only words.
+    </div>
+  </div>
+  <div class="image"><img src="https://thumbs.dreamstime.com/b/muslim-quote-there-none-worthy-worship-except-allah-good-print-195761867.jpg" alt=""></div>
+</div>
+    <div id="ayah15" class="ayah-block">
+  <div class="text">
+    <h2>🌿 Surah Al-Baqarah (2:155)</h2>
+    <div class="arabic">وَلَنَبْلُوَنَّكُم بِشَيْءٍ مِّنَ الْخَوْفِ وَالْجُوعِ وَنَقْصٍ مِّنَ الْأَمْوَالِ وَالْأَنفُسِ وَالثَّمَرَاتِ ۗ وَبَشِّرِ الصَّابِرِينَ</div>
+    <div class="translation">"And We will surely test you with something of fear and hunger and a loss of wealth and lives and fruits, but give good tidings to the patient."</div>
+    <div class="explanation">
+      💬 Bro/sis — this ayah is a reminder that life won’t always be smooth:  
+       Tests like fear, hunger, and loss are part of dunya.  
+       They are not punishments, but training for the soul.  
+       Patience isn’t passive — it’s trusting Allah while moving forward.  
+       In today’s stressful world, this is resilience in action.  
+       The promise is clear: patience brings Allah’s glad tidings. 
+    </div>
+  </div>
+  <div class="image"><img src="c:\Users\Akhter Laptops\Downloads\Screenshot_14-9-2025_20268_www.bing.com.jpeg" alt=""></div>
+</div>
+      <div id="ayah16"class="ayah-block">
+  <div class="text">
+    <h2>🌿 Surah Taha (20:46)</h2>
+    <div class="arabic">قَالَ لَا تَخَافَآ إِنَّنِي مَعَكُمَآ أَسْمَعُ وَأَرَىٰ</div>
+    <div class="translation">[Allah] said, “Fear not. Indeed, I am with you both; I hear and I see.”</div>
+    <div class="explanation">
+      💬 Bro/sis — this ayah was Allah’s reassurance to Musa (AS) and Harun (AS) when they were about to face Pharaoh, 
+      one of the most powerful rulers ever. Imagine the fear and pressure they must have felt, yet Allah calmed them with these words:
+       *Don’t be afraid, I am with you, hearing and seeing everything.* For us today, it’s a powerful reminder that no matter how huge our
+        problems feel — exams, financial struggles, toxic people, or loneliness — Allah is fully aware. He hears every silent dua and sees every tear.
+         Instead of drowning in fear, we can walk with courage, because when Allah is with us, no challenge is greater than His support. 🌿
+    </div>
+  </div>
+  <div class="image"><img src="https://tse4.mm.bing.net/th/id/OIP.7pflEgod7zk84iQhF3eRzAAAAA?w=300&h=169&rs=1&pid=ImgDetMain&o=7&rm=3" alt=""></div>
+</div>
+         <div id="ayah17" class="ayah-block">
+  <div class="text">
+    <h2>🌿 Surah Ad-Duha (93:3–5)</h2>
+    <div class="arabic">
+      مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ ‎﴿٣﴾‏ <br>
+      وَلَلْآخِرَةُ خَيْرٌ لَّكَ مِنَ الْأُولَىٰ ‎﴿٤﴾‏ <br>
+      وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰ ‎﴿٥﴾‏
+    </div>
+    <div class="translation">
+    "  Your Lord has not taken leave of you, nor has He detested you.  
+      And the Hereafter is better for you than the first [life].  
+      And your Lord is going to give you, and you will be satisfied."
+    </div>
+    <div class="explanation">
+      💬 these verses were revealed when the Prophet ﷺ felt a pause in revelation and some people mocked him, saying Allah had 
+      abandoned him. But Allah responded with comfort: “Your Lord has not left you, nor does He dislike you.” For us today, it’s a reminder that
+       silence from Allah isn’t rejection — sometimes He delays to give us something better. Life’s struggles, heartbreaks, and waiting periods can 
+       feel like we’ve been left alone, but in reality, Allah is preparing ease and gifts ahead. The akhirah (Hereafter)
+       is far better than this temporary world, and whatever loss or sadness we face now will one day be replaced with something that makes us truly content
+    </div>
+  </div>
+  <div class="image"><img src="c:\Users\Akhter Laptops\Downloads\Screenshot_14-9-2025_20306_www.bing.com.jpeg" alt=""></div>
+</div>
+      <div  id="ayah18" class="ayah-block">
+  <div class="text">
+    <h2>🌿 Surah Al-Ankabut (29:69)</h2>
+    <div class="arabic">وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا ۚ وَإِنَّ اللَّهَ لَمَعَ الْمُحْسِنِينَ</div>
+    <div class="translation">
+      "And those who strive for Us – We will surely guide them to Our ways. And indeed, Allah is with the doers of good".
+    </div>
+    <div class="explanation">
+      💬 This verse promises that anyone who struggles sincerely for Allah will be guided by Him. Effort, even small, never goes unnoticed
+       — and Allah’s support is always with those who do good.
+    </div>
+  </div>
+  <div class="image"><img src="c:\Users\Akhter Laptops\Downloads\Screenshot_14-9-2025_203420_www.bing.com.jpeg" alt=""></div>
+</div>
+       <div id="ayah19"class="ayah-block">
+  <div class="text">
+    <h2>🌿 Surah As-Saff (61:13)</h2>
+    <div class="arabic">وَأُخْرَىٰ تُحِبُّونَهَا ۖ نَصْرٌ مِّنَ اللَّهِ وَفَتْحٌ قَرِيبٌ ۗ وَبَشِّرِ الْمُؤْمِنِينَ</div>
+    <div class="translation">
+      "And [you will obtain] another [favor] that you love – victory from Allah and an imminent conquest; and give good tidings to the believers".
+    </div>
+    <div class="explanation">
+      💬 This verse assures that with faith and effort comes Allah’s help and victory. Even when struggles seem endless, His support and relief are always near — a promise of hope for every believer.
+    </div>
+  </div>
+  <div class="image"><img src="https://tse1.mm.bing.net/th/id/OIP.qReN-B2uIs3FaLNaa0OkAwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt=""></div>
+</div>
+<div id="ayah20"class="ayah-block">
+  <div class="text">
+    <h2>🌿 Surah Al-Anfal (8:46)</h2>
+    <div class="arabic">وَأَطِيعُوا اللَّهَ وَرَسُولَهُ وَلَا تَنَازَعُوا فَتَفْشَلُوا وَتَذْهَبَ رِيحُكُمْ ۖ وَاصْبِرُوا ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ</div>
+    <div class="translation">
+      "And obey Allah and His Messenger, and do not dispute and [thus] lose courage and your strength would depart; and be patient. Indeed, Allah is with the patient".
+    </div>
+    <div class="explanation">
+      💬 Bro, this ayah is so real for our times. Look around — fights, arguments, divisions everywhere, even among friends and families.
+       Allah is warning us straight up: if we keep fighting each other,
+       we lose our strength. That’s why unity, patience, and following Allah’s commands are the key to standing strong. 
+       If we stay divided, we collapse, but if we hold together, Allah’s help is with us.
+    </div>
+  </div>
+  <div class="image"><img src="c:\Users\Akhter Laptops\Downloads\Screenshot_14-9-2025_204153_www.bing.com.jpeg" alt=""></div>
+</div>
+
+   <div class="container">
+    <h2 class="text-center">🌿 Real Talk Q&A</h2>
+    <div class="card">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#q1">
+        Feeling Overwhelmed
+      </div>
+      <div id="q1" class="collapse">
+        <div class="card-body">
+          Honestly, life piles up sometimes — exams, pressure, overthinking. Been there.<br><br>
+          👉 Qur’an: <b>“With hardship comes ease”</b> (94:5–6). Ease is already tied with the struggle. If u want 
+          <b>Success </b> , You've to face hardships first but with true <b>Belief in Allah Almighty</b> <br>
+          There’s one truth that makes a sad person smile and a happy person pause in sorrow — this time too shall pass.
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#q2">
+         Social Media Distraction
+      </div>
+      <div id="q2" class="collapse">
+        <div class="card-body">
+          I waste hours scrolling too, then regret it at night .<br><br>
+          👉 Qur’an: <b>“By time, surely mankind is in loss”</b> (103:1–3). Even 15 mins for Qur’an changes the vibe. 
+       “If you study or do any work, it’s easier if you finish it first, and then you can scroll later in your free time.”
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#q3">
+         Feeling Lonely
+      </div>
+      <div id="q3" class="collapse">
+        <div class="card-body">
+          Feels like no one cares sometimes, right?<br><br>
+          👉 Allah says: <b>“Indeed, I am near”</b> (2:186). People may ghost, but He never does. 
+       “If everyone leaves you in any situation, don’t forget that Allah never <b>abandons</b> His servant. He will always be there, no matter how sinful you are.”
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#q4">
+         Bad Habits
+      </div>
+      <div id="q4" class="collapse">
+        <div class="card-body">
+          I slip again after tawbah too, it hurts.<br><br>
+          👉 Qur’an: <b>“Do not despair of Allah’s mercy”</b> (39:53). Falling and getting back up still counts.There is a well said quote 
+          <br><b>"It’s the believer who stumbles, but finds his way back."</b>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#q5">
+         Comparing Myself
+      </div>
+      <div id="q5" class="collapse">
+        <div class="card-body">
+          Everyone looks ahead, I feel stuck.<br><br>
+          👉 Qur'an: <b>“Allah does not burden a soul beyond what it can bear”</b> (2:286).“Your path is your own, and no one will walk it for you.
+           You think your problems are big? Think of those who don’t
+           even have a house to live in, or money to eat even one meal a day. So, thank Allah in every condition and always have <b>faith</b> in Him.”
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#q6">
+         Anxiety & Overthinking
+      </div>
+      <div id="q6" class="collapse">
+        <div class="card-body">
+          Mind won't stop racing, I get that feeling.<br><br>
+          👉 Qur'an: <b>“In the remembrance of Allah do hearts find rest”</b> (13:28). Dhikr really calms the storm. <br>
+          And I know <b>overthinking</b> is one of the biggest issues of today’s generation. But how can you get rid of it? The easiest solution is
+           Dhikr. Can’t you give at least a little time of your day to Allah — the One who created you from just a <b>clot of blood?</b> In your 24 
+           long hours, can’t you spare a moment for your Rabb? The answer is yes, you can. If you truly want inner peace,
+           happiness, relief from every hardship, then there’s only one solution: remember your Rabb, the One and Only, through His <b>Zikar</b> and His worship
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#q7">
+        Feeling Lazy
+      </div>
+      <div id="q7" class="collapse">
+        <div class="card-body">
+          Struggling to pray on time? Been there too.<br><br>
+          👉 Qur'an: <b>“Establish prayer to remember Me”</b> (20:14). Start with one on time, then grow. <br>But first of all, you need to be 
+          <b>disciplined</b>and have the <b>right mindset.</b> Without that, it will only remain talk, and you’ll never be able to take action.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#q8">
+         Chasing Success
+      </div>
+      <div id="q8" class="collapse">
+        <div class="card-body">
+          Feels like everyone's flexing money and cars.<br><br>
+          👉 Qur'an: <b>"What is with Allah is better and more lasting”</b> (28:60). Dunya fades, akhirah stays. <br>This is a <b>temporary life;</b> 
+          the real life is the Hereafter. Bro, so why stress over worldly matters? Focus on the Hereafter.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#q9">
+         Family Problems
+      </div>
+      <div id="q9" class="collapse">
+        <div class="card-body">
+          Home feels heavy sometimes, no peace.<br><br>
+          👉 Qur'an: <b>"Indeed Allah is with the patient”</b> (2:153). Patience + du'a bring better days. <br>Why are you so impatient? Don’t you know how much Allah loves patience,
+           and how He tests His servants this way? So please, be patient — the <b>fruit of sabr </b>is always sweet.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#q10">
+         Feeling Far From Allah
+      </div>
+      <div id="q10" class="collapse">
+        <div class="card-body">
+          Sometimes iman dips and I feel disconnected.<br><br>
+          👉 Qur'an: <b>“So remember Me; I will remember you”</b> (2:152). Take one step, He pulls you <br> “Is your religion/faith only this 
+          — that you get lost in worldly matters (which are temporary) and forget Allah? Don’t you want to <b>prepare your Hereafter?</b> If you do, first build the right mindset yourself;
+           don’t chase the world that will ruin your akhirah. And please, make dua to Allah — He never rejects a sincere supplication.”
+        </div>
+      </div>
+    </div>
+
+  </div>
+<div class="footer" id="footer">
+    If you found this website helpful, <b>please share</b> so others can benefit too. <br>
+    If you see any mistake, <span class="highlight">please forgive me</span> — humans are not perfect. <br><br>
+    I hope this page gave you <b>motivation</b> and a <span class="highlight">fresh mindset</span>. <br>
+    Keep your developer in your <b>duas</b>. 🌙 <br><br>
+    <b>Take care & Allah Hafiz</b>
+  </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("table tr").forEach(row => {
+    row.addEventListener("click", () => {
+      let targetId = row.getAttribute("data-target");
+      if (targetId) {
+        let target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "center" });
+          target.style.backgroundColor = "#e6ffe6";
+          setTimeout(() => target.style.backgroundColor = "", 1500);
+        }
+      }
+    });
+  });
+});
+
+</script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    window.onload = () => document.getElementById("footer").classList.add("show");
+  </script>
+
+</body>
+</html>
+
+
+
+</body>
+</html>
